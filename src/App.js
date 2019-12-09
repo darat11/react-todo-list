@@ -29,6 +29,7 @@ class App extends Component {
       title: this.state.item
     };
     const updatedItems = [...this.state.items, newItem];
+
     this.setState({
       items: updatedItems,
       item: "",
