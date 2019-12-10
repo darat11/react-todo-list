@@ -3,6 +3,7 @@ import uuid from "uuid";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import { objectExpression } from "@babel/types";
 
 // vs-code github setup //
 
@@ -38,10 +39,15 @@ class App extends Component {
     });
   };
   clearList = () => {
-    console.log("Clear list");
+    this.setState({
+      items: []
+    });
   };
   handleDelete = id => {
-    console.log(`Handle delete ${id}`);
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    this.setState({
+      items: filteredItems
+    });
   };
   handleEdit = id => {
     console.log(`Handle edit ${id}`);
